@@ -1,4 +1,6 @@
 [![CircleCI](https://circleci.com/gh/ckwagaba/stream/tree/master.svg?style=svg)](https://circleci.com/gh/ckwagaba/stream/tree/master)
 
+[![Coverage Status](https://coveralls.io/repos/github/ckwagaba/stream/badge.svg?branch=master)](https://coveralls.io/github/ckwagaba/stream?branch=master)
+
 # Stream
 Realtime Social Feeds
