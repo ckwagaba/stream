@@ -1,0 +1,66 @@
+@import "../App/App.scss";
+
+.landing-page {
+  background: url("../../../assets/images/hero.jpg") no-repeat center center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.landing-page-overlay {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(52, 63, 75, .8);
+}
+
+.intro {
+  text-align: center;
+}
+
+.intro-name {
+  font-size: 5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: map-get($colors, primary);
+}
+
+.intro-description {
+  color: #FFF;
+  margin: 5rem 0;
+}
+
+.intro-description-engage {
+  font-size: 4rem;
+}
+
+.intro-description-follow {
+  font-size: 2rem;
+  font-weight: 100;
+}
+
+.login-button {
+  color: #FFF;
+  background: map-get($colors, primary);
+  display: flex;
+  cursor: default;
+}
+
+.twitter-logo {
+  width: 5rem;
+}
+
+.twitter-logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.login-instruction {
+  padding: 1rem 5rem;
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 200;
+}
