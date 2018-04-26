@@ -7,7 +7,7 @@ import LandingPage from '../LandingPage/LandingPage.component';
 import './App.scss';
 
 // check for accessToken from sessionStorage
-const accessToken = sessionStorage.getItem('streamAccessToken');
+const accessToken = localStorage.getItem('streamAccessToken');
 
 let appContent: any;
 
@@ -19,6 +19,7 @@ if (!accessToken || accessToken === null) {
 }
 
 const App = () => {
+  // should be a stateful component
   return (
     <div>
       {
