@@ -12,7 +12,7 @@ import {
 
 export const getUserData = () => {
   // we do the twitter stuff here
-  // console.log('OAuth Here...');
+  console.log('OAuth Here...');
   return ((dispatch: any) => {
     return axios({
       method: 'get',
