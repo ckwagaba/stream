@@ -19,7 +19,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack-dev-server --mode development",
-    "test": "jest --watch"
+    "test": "jest"
   },
   "devDependencies": {
     "@types/enzyme": "^3.1.10",
