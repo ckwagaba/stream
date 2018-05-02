@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 // components
 import LandingPage from '../LandingPage/LandingPage.component';
@@ -6,27 +7,79 @@ import LandingPage from '../LandingPage/LandingPage.component';
 // stylesheet
 import './App.scss';
 
-// check for accessToken from sessionStorage
-const accessToken = localStorage.getItem('streamAccessToken');
+// interfaces
+import {
+  IAppProps,
+  IAppState,
+} from '../../interfaces/app';
 
-let appContent: any;
+/**
+ * The main app component
+ *
+ * @class App
+ * @extends {React.Component<IAppProps, IAppState>}
+ */
+class App extends Component<IAppProps, IAppState> {
+  /**
+   * Creates an instance of App
+   *
+   * @param {object} props
+   * @memberof App
+   * @returns {void}
+   */
+  constructor(props: IAppProps) {
+    super(props);
 
-if (!accessToken || accessToken === null) {
-  appContent = <LandingPage />;
-} else {
-  // provide StreamList component
-  appContent = accessToken;
+    this.state = {
+      accessToken: ''
+    };
+  }
+
+  /**
+   * When component receives props from store
+   *
+   * @param {nextProps}
+   * @memberof App
+   * @returns {void}
+   */
+  public componentWillReceiveProps(nextProps: IAppProps) {
+    if (this.props !== nextProps){
+      this.setState({
+        accessToken: nextProps.accessToken
+      });
+    }
+  }
+
+  /**
+   * Defines component JSX
+   *
+   * @memberof APP
+   * @returns {JSX}
+   */
+  public render() {
+    console.log(this.state.accessToken);
+    return (
+      <div>
+        {
+          this.state.accessToken
+          &&
+          <div>StreamList</div>
+        }
+        {
+          !this.state.accessToken
+          &&
+          <LandingPage />
+        }
+
+      </div>
+    );
+  };
 }
 
-const App = () => {
-  // should be a stateful component
-  return (
-    <div>
-      {
-        appContent
-      }
-    </div>
-  );
+const mapStateToProps = (state: any) => {
+  return {
+    accessToken: state.user.accessToken,
+  };
 };
 
-export default App;
+export default connect(mapStateToProps)(App);
